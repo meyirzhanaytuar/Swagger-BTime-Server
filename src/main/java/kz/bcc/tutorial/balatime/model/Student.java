@@ -5,20 +5,20 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Date;
 
-@Table(name = "teacher", schema = "public")
+@Table(name = "student", schema = "public")
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Setter
 @Getter
-public class Teacher {
+public class Student {
     @Id
-    @SequenceGenerator(name = "teacher_id_seq",
-            sequenceName = "teacher_id_seq",
+    @SequenceGenerator(name = "student_id_seq",
+            sequenceName = "student_id_seq",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "teacher_id_seq")
+            generator = "student_id_seq")
     @Column(name = "id")
     private Integer id;
     @Column(name = "first_name")
@@ -29,7 +29,6 @@ public class Teacher {
     private String address;
     @Column(name = "birthdate")
     private Date birthdate;
-    @Column(name = "userid")
-    private Integer userid;
-
+    @Column(name = "s_group_id")
+    private Integer s_group_id;
 }
