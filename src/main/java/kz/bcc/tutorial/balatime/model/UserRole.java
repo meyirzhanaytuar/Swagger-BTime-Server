@@ -1,18 +1,19 @@
 package kz.bcc.tutorial.balatime.model;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.sql.Date;
 
-@Table(name = "userRole", schema = "public")
+@Table(name = "user_role", schema = "public")
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Setter
 @Getter
-public class UserRole {
+public class UserRole implements GrantedAuthority {
     @Id
     @SequenceGenerator(name = "userRole_id_seq",
             sequenceName = "userRole_id_seq",
@@ -23,6 +24,9 @@ public class UserRole {
     private Integer id;
     @Column(name = "role_name")
     private String role_name;
-    @Column(name = "user_id")
-    private String user_id;
+    @Override
+    public String getAuthority() {
+        return role_name;
+    }
+
 }

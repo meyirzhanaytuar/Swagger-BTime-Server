@@ -38,4 +38,10 @@ public class LessonServiceImpl implements LessonService {
     public void delete(Integer id) {
 
     }
+
+    @Override
+    public List<Lesson> getAllBySubjectId(Integer SubjectId) {
+        return lessonRepository.getAll123(SubjectId);
+    }
+
 }

@@ -36,6 +36,16 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public void delete(Integer id) {
-
+        List<Subject> subjectList = subjectRepository.findAll();
+        Subject subject1 = new Subject();
+        for (Subject subject: subjectList) {
+            if(subject.getId() == id) {
+                subject1 = subject;
+                break;
+            }
+        }
+        subjectRepository.delete(subject1);
+        Subject subject = subjectRepository.findById(id).get();
+        subjectRepository.delete(subject);
     }
 }

@@ -25,7 +25,7 @@ public class GradingController {
     }
 
     @ApiOperation(value = "Create or update grades object")
-    @PostMapping()
+    @PostMapping("/save")
     public ResponseEntity<Grading> calculateTestObject(@RequestBody Grading grading) {
         return ResponseEntity.ok(gradingService.create(grading));
     }

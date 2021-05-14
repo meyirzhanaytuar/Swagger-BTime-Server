@@ -34,4 +34,10 @@ public class SubjectController {
     public ResponseEntity<Subject> getSubjectById(@PathVariable Integer id) {
         return ResponseEntity.ok(subjectService.getById(id));
     }
+
+    @ApiOperation(value = "Delete subjects by id")
+    @DeleteMapping("delete/{id}")
+    public void deleteSubjectById(@PathVariable(name="id") Integer id) {
+        subjectService.delete(id);
+    }
 }

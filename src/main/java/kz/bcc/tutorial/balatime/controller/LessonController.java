@@ -34,4 +34,10 @@ public class LessonController {
     public ResponseEntity<Lesson> getLessonById(@PathVariable Integer id) {
         return ResponseEntity.ok(lessonService.getById(id));
     }
+    @ApiOperation(value = "Get All lessons by subjectId")
+    @GetMapping("/all/{subjectId}")
+    public ResponseEntity<List<Lesson>> getAllBySubjectId(@PathVariable(name = "subjectId") Integer subjectId) {
+        return ResponseEntity.ok(lessonService.getAllBySubjectId(subjectId));
+    }
+
 }

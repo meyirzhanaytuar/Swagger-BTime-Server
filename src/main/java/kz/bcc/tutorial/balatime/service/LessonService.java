@@ -12,4 +12,6 @@ public interface LessonService {
     List<Lesson> getAll();
 
     void delete(Integer id);
+
+    List<Lesson> getAllBySubjectId(Integer SubjectId);
 }
