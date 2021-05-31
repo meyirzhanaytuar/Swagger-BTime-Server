@@ -2,6 +2,7 @@ package kz.bcc.tutorial.balatime.controller;
 
 import io.swagger.annotations.ApiOperation;
 import kz.bcc.tutorial.balatime.model.User;
+import kz.bcc.tutorial.balatime.model.UserUpdateDto;
 import kz.bcc.tutorial.balatime.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,5 +34,19 @@ public class UserController {
     @GetMapping("/id/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Integer id) {
         return ResponseEntity.ok(userService.getById(id));
+    }
+    @ApiOperation(value = "update users by id")
+    @PutMapping("/user/id/{id}")
+    public ResponseEntity<User> userUpdate (@PathVariable Integer id,
+                                            @RequestBody UserUpdateDto userDto){
+
+       return ResponseEntity.ok(userService.userUpdate(id, userDto));
+    }
+
+    //delete by id
+    @ApiOperation(value = "Delete User by Id")
+    @DeleteMapping("/del/id/{id}")
+    public void deleteUserById(@PathVariable Integer id) {
+        userService.delete(id);
     }
 }

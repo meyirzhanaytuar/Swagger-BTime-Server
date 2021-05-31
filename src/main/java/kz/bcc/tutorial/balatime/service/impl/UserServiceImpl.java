@@ -1,6 +1,7 @@
 package kz.bcc.tutorial.balatime.service.impl;
 
 import kz.bcc.tutorial.balatime.model.User;
+import kz.bcc.tutorial.balatime.model.UserUpdateDto;
 import kz.bcc.tutorial.balatime.repository.UserRepository;
 import kz.bcc.tutorial.balatime.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void delete(Integer id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public User userUpdate(Integer id, UserUpdateDto userDto) {
+        if(userRepository.existsById(id)){
+            User user  =userRepository.findById(id).get();
+            user.setLogin(user.getLogin());
+            user.setPassword(user.getPassword());
+            user = userRepository.saveAndFlush(user);
+            return user;
+        }
+        return null;
+
     }
 
     @Override
