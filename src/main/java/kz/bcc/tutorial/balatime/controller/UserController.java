@@ -36,7 +36,7 @@ public class UserController {
         return ResponseEntity.ok(userService.getById(id));
     }
     @ApiOperation(value = "update users by id")
-    @PutMapping("/user/id/{id}")
+    @PostMapping("/user/id/{id}")
     public ResponseEntity<User> userUpdate (@PathVariable Integer id,
                                             @RequestBody UserUpdateDto userDto){
 
