@@ -23,6 +23,8 @@ public class Teacher {
     private Integer id;
     @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     @Column(name = "phone_number")
     private String phoneNumber;
     @Column(name = "address")
@@ -31,5 +33,8 @@ public class Teacher {
     private Date birthdate;
     @Column(name = "userid")
     private Integer userid;
+    @ManyToOne
+    @JoinColumn(name="userid", insertable = false, updatable = false)
+    private User teacher;
 
 }

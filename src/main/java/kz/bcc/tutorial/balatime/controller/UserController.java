@@ -1,15 +1,18 @@
 package kz.bcc.tutorial.balatime.controller;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import kz.bcc.tutorial.balatime.model.User;
 import kz.bcc.tutorial.balatime.model.UserUpdateDto;
 import kz.bcc.tutorial.balatime.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -42,11 +45,19 @@ public class UserController {
 
        return ResponseEntity.ok(userService.userUpdate(id, userDto));
     }
-
     //delete by id
     @ApiOperation(value = "Delete User by Id")
     @DeleteMapping("/del/id/{id}")
     public void deleteUserById(@PathVariable Integer id) {
         userService.delete(id);
     }
+    @ApiOperation(value = "Get user by id")
+    @GetMapping("/page/{page}/size/{size}")
+    public ResponseEntity<Page<User>> getByPageAndSize(
+            @PathVariable Integer page,
+            @PathVariable Integer size
+    ) {
+        return ResponseEntity.ok(userService.getAllByPageAndSize(page, size));
+    }
+
 }
