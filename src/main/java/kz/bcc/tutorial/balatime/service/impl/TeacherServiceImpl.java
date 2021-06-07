@@ -1,9 +1,13 @@
 package kz.bcc.tutorial.balatime.service.impl;
 
 import kz.bcc.tutorial.balatime.model.Teacher;
+import kz.bcc.tutorial.balatime.model.User;
 import kz.bcc.tutorial.balatime.repository.TeacherRepository;
 import kz.bcc.tutorial.balatime.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,5 +41,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void delete(Integer id) {
         teacherRepository.delete(getById(id));
+    }
+    @Override
+    public Page<Teacher> getAllByPageAndSize(Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return teacherRepository.findAll(pageable);
     }
 }

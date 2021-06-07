@@ -1,9 +1,14 @@
 package kz.bcc.tutorial.balatime.service.impl;
 
 import kz.bcc.tutorial.balatime.model.Student;
+import kz.bcc.tutorial.balatime.model.User;
 import kz.bcc.tutorial.balatime.repository.StudentRepository;
+import kz.bcc.tutorial.balatime.repository.StudentRepositoryPaging;
 import kz.bcc.tutorial.balatime.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +19,12 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentRepository studentRepository;
 
+    @Autowired
+    private StudentRepositoryPaging studentRepositoryPaging;
+
     @Override
     public Student create(Student student) {
-        return studentRepository.save(student);
+        return getById(studentRepository.saveAndFlush(student).getId());
     }
 
     @Override
@@ -36,5 +44,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void delete(Integer id) {
+        studentRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Student> getAllByPageAndSize(Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return studentRepositoryPaging.findAll(pageable);
     }
 }

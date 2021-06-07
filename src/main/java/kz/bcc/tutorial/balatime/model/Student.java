@@ -29,6 +29,14 @@ public class Student {
     private String address;
     @Column(name = "birthdate")
     private Date birthdate;
-    @Column(name = "s_group_id")
-    private Integer s_group_id;
+    @Column(name = "sgroupid")
+    private Integer sgroupid;
+    @Column(name = "userid")
+    private Integer userid;
+    @ManyToOne
+    @JoinColumn(name="userid", insertable = false, updatable = false)
+    private User studentrole;
+    @ManyToOne
+    @JoinColumn(name="sgroupid", insertable = false, updatable = false)
+    private Group studentgroup;
 }

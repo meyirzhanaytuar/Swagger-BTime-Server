@@ -51,6 +51,7 @@ public class UserController {
     public void deleteUserById(@PathVariable Integer id) {
         userService.delete(id);
     }
+
     @ApiOperation(value = "Get user by id")
     @GetMapping("/page/{page}/size/{size}")
     public ResponseEntity<Page<User>> getByPageAndSize(

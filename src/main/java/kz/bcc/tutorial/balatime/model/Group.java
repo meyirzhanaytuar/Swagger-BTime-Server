@@ -21,8 +21,11 @@ public class Group {
             generator = "group_id_seq")
     @Column(name = "id")
     private Integer id;
-    @Column(name = "group_name")
+    @Column(name = "groupname")
     private String group_name;
-    @Column(name = "adviser_id")
-    private Integer adviser_id;
+    @Column(name = "adviserid")
+    private Integer adviserid;
+    @ManyToOne
+    @JoinColumn(name="adviserid", insertable = false, updatable = false)
+    private Teacher groupTeacher;
 }
