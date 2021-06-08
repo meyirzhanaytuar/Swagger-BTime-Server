@@ -14,14 +14,14 @@ import java.sql.Date;
 @Getter
 public class Subject {
     @Id
-    @SequenceGenerator(name = "Subject_id_seq",
-            sequenceName = "Subject_id_seq",
+    @SequenceGenerator(name = "subject_id_seq",
+            sequenceName = "subject_id_seq",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "Subject_id_seq")
+            generator = "subject_id_seq")
     @Column(name = "id")
     private Integer id;
     @Column(name = "sub_name")
-    private String sub_name;
+    private String subName;
 
 }

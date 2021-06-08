@@ -23,12 +23,12 @@ public class TimeTable {
     private Integer id;
     @Column(name = "time")
     private String time;
-    @Column(name = "sub_id")
-    private Integer sub_id;
-    @Column(name = "g_id")
-    private Integer g_id;
-    @Column(name = "t_id")
-    private Integer t_id;
-    @Column(name = "r_id")
-    private Integer r_id;
+    @Column(name = "subId")
+    private Integer subId;
+    @Column(name = "gId")
+    private Integer gId;
+    @Column(name = "tId")
+    private Integer tId;
+    @Column(name = "rId")
+    private Integer rId;
 }

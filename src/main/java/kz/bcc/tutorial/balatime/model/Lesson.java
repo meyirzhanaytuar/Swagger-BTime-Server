@@ -21,8 +21,8 @@ public class Lesson {
             generator = "lesson_id_seq")
     @Column(name = "id")
     private Integer id;
-    @Column(name = "sub_id")
-    private Integer sub_id;
+    @Column(name = "subId")
+    private Integer subId;
     @Column(name = "date")
     private Date date;
     @Column(name = "topic")

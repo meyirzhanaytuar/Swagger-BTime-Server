@@ -14,15 +14,15 @@ import java.sql.Date;
 @Getter
 public class TSMap {
     @Id
-    @SequenceGenerator(name = "ts_id_seq",
-            sequenceName = "ts_id_seq",
+    @SequenceGenerator(name = "tsmap_tsId_seq",
+            sequenceName = "tsmap_tsId_seq",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "ts_id_seq")
-    @Column(name = "id")
-    private Integer id;
-    @Column(name = "t_id")
-    private Integer t_id;
-    @Column(name = "s_id")
-    private Integer s_id;
+            generator = "tsmap_tsId_seq")
+    @Column(name = "tsId")
+    private Integer tsId;
+    @Column(name = "tId")
+    private Integer tId;
+    @Column(name = "sId")
+    private Integer sId;
 }

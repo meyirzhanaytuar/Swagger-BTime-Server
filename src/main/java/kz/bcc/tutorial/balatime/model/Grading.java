@@ -21,10 +21,10 @@ public class Grading {
             generator = "grading_id_seq")
     @Column(name = "id")
     private Integer id;
-    @Column(name = "stud_id")
-    private Integer stud_id;
+    @Column(name = "studId")
+    private Integer studId;
     @Column(name = "grade")
     private String grade;
-    @Column(name = "timetable_id")
-    private Integer timetable_id;
+    @Column(name = "timetableId")
+    private Integer timetableId;
 }

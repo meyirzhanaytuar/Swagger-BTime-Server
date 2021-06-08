@@ -22,5 +22,5 @@ public class Room {
     @Column(name = "id")
     private Integer id;
     @Column(name = "room_name")
-    private String room_name;
+    private String roomName;
 }
