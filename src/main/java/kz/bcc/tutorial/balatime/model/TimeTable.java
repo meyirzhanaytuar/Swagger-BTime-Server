@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Date;
 
-@Table(name = "timeTable", schema = "public")
+@Table(name = "time_table", schema = "public")
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,21 +14,21 @@ import java.sql.Date;
 @Getter
 public class TimeTable {
     @Id
-    @SequenceGenerator(name = "timeTable_id_seq",
-            sequenceName = "timeTable_id_seq",
+    @SequenceGenerator(name = "time_table_id_seq",
+            sequenceName = "time_table_id_seq",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "timeTable_id_seq")
+            generator = "time_table_id_seq")
     @Column(name = "id")
     private Integer id;
     @Column(name = "time")
     private String time;
-    @Column(name = "subId")
-    private Integer subId;
-    @Column(name = "gId")
-    private Integer gId;
-    @Column(name = "tId")
-    private Integer tId;
-    @Column(name = "rId")
-    private Integer rId;
+    @Column(name = "subject_id")
+    private Integer subject_id;
+    @Column(name = "group_id")
+    private Integer group_id;
+    @Column(name = "teacher_id")
+    private Integer teacher_id;
+    @Column(name = "room_id")
+    private Integer room_id;
 }

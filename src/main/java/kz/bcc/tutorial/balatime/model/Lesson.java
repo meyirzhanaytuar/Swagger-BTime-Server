@@ -21,7 +21,7 @@ public class Lesson {
             generator = "lesson_id_seq")
     @Column(name = "id")
     private Integer id;
-    @Column(name = "subId")
+    @Column(name = "sub_id")
     private Integer subId;
     @Column(name = "date")
     private Date date;

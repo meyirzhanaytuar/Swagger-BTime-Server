@@ -16,7 +16,7 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public Lesson create(Lesson lesson) {
-        return lessonRepository.save(lesson);
+        return lessonRepository.saveAndFlush(lesson);
     }
 
     @Override
